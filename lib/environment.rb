@@ -1,6 +1,7 @@
-require "us_presidents/version"
+require "nokogiri"
+require "open-uri"
+require "pry"
 
-module UsPresidents
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "us_presidents/version"
+require_relative "us_presidents/cli"
+require_relative "us_presidents/scraper"
