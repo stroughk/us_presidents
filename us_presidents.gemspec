@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Kateryna Strough'"]
   spec.email         = ["'katerynastrough@hotmail.com'"]
 
-  spec.summary       = %q{This ruby gem is a display of all US presidents.}
+  spec.summary       = %q{This ruby gem displays information about all US presidents.}
   spec.description   = %q{This ruby gem displays detailed information about US presidents}
   spec.homepage      = "https://github.com/stroughk/us_presidents"
   spec.license       = "MIT"
