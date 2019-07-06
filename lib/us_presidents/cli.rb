@@ -3,16 +3,13 @@ class UsPresidents::CLI
   def start 
    greeting
    list_presidents
-   user_choice
-   details
+   menu
    goodbye
   end
   
   
   def greeting
-    puts "\nWelcome! Please see a list of US Presidents.\n"
-    puts "\nPlease type a number associated with a president you would like to learn more.\n"
-    
+    puts "\nWelcome! Please see a list of US Presidents.\n\n"
   end
   
   def list_presidents 
@@ -23,16 +20,26 @@ class UsPresidents::CLI
   
   end
   
-  def user_choice 
-    input = gets.strip.to_i
+  def menu 
+    input = nil 
+    while input != "exit"
+      puts "\nType the number of the president you would like more information on or type 'exit' to exit.\n"
+      input = gets.strip.downcase
+    case input 
+      when "1"
+        puts "This is information on George Washington"
+      when "2"
+        puts "This is information on John Adams"
+      when "3"
+        puts "This is information on Thomas Jefferson"
+      end 
+    end
   end
   
-  def details 
-    #display the information about the president the user selected
-  end
+ 
   
   def goodbye 
-    #puts "Goodbye!"
+    puts "Goodbye!"
   end
   
 end
