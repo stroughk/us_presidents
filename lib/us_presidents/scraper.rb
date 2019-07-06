@@ -10,9 +10,14 @@ class UsPresidents::Scraper
     end  
 
     def self.scrape_url 
-      site = "https://millercenter.org/president"  
-      webpage = Nokogiri::HTML(open(site))
-      full_url = "https://millercenter.org" + (webpage.search(".field-content a").attr("href"))
+      site = "https://millercenter.org/president"    #enter your site to test here
+      page = Nokogiri::HTML(open(site))
+      title = page.css("div.info-wrapper a")
+    @href = []
+      title.each do |a| 
+     @href << a.attr("href")
+      puts @href
+      end
     end
 
     def self.scrape_story
