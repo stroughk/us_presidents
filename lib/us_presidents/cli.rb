@@ -4,7 +4,6 @@ class UsPresidents::CLI
    greeting
    list_presidents
    menu
-   goodbye
   end
   
   
@@ -34,6 +33,8 @@ class UsPresidents::CLI
         puts "This is information on Thomas Jefferson"
       when "list"
         list_presidents
+      when "exit"
+        say_goodbye
       else 
         puts "Not valid entry. Please enter 'list' or 'exit'"
       end 
@@ -42,7 +43,7 @@ class UsPresidents::CLI
   
  
   
-  def goodbye 
+  def say_goodbye
     puts "Goodbye!"
   end
   
