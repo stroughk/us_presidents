@@ -23,7 +23,7 @@ class UsPresidents::CLI
   def menu 
     input = nil 
     while input != "exit"
-      puts "\nType the number of the president you would like more information on or type 'exit' to exit.\n"
+      puts "\nType the number of the president you would like more information on or type 'list' to list again or  type 'exit' to exit.\n"
       input = gets.strip.downcase
     case input 
       when "1"
@@ -32,6 +32,10 @@ class UsPresidents::CLI
         puts "This is information on John Adams"
       when "3"
         puts "This is information on Thomas Jefferson"
+      when "list"
+        list_presidents
+      else 
+        puts "Not valid entry. Please enter 'list' or 'exit'"
       end 
     end
   end
