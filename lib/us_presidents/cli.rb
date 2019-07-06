@@ -1,45 +1,45 @@
 class UsPresidents::CLI 
   
-  def start 
-   greeting
-   list_presidents
-   menu
-  end
+  def call 
+    puts "Welcome to learn about US Presidents!"
+    UsPresidents::Scraper.scrape_presidents
+    list_presidents
+    menu
+    end 
   
-  def greeting
-    puts "\nWelcome! Please see a list of US Presidents.\n\n"
-  end
-  
-  def list_presidents 
-    @presidents = UsPresidents::Presidents.presidents
+    def list_presidents 
+    @presidents = UsPresidents::Scraper.scrape_presidents
     @presidents.each.with_index(1).each do |link, index|
      puts "#{index}. #{link.text}"
     end
   end
-  
+
+
   def menu 
-    input = nil 
+    input = ""
     while input != "exit"
-      puts "\nType the number of the president you would like more information on or type 'list' to list again or  type 'exit' to exit.\n"
-      input = gets.strip.downcase
-    case input 
-      when "1"
-        puts "This is information on George Washington."
-      when "2"
-        puts "This is information on John Adams"
-      when "3"
-        puts "This is information on Thomas Jefferson"
-      when "list"
-        list_presidents
-      when "exit"
-        say_goodbye
-      else 
-        puts "Not valid entry. Please enter 'list' or 'exit'"
-      end 
+      puts "Type in the number of the president you want to read more: "
+      input = gets.strip 
+    
+      if input.to_i-1 <= UsPresidents::Details.all.size 
+        story = UsPresidents::Details.all[input.to_i-1]
+      
+        puts UsPresidents::Scraper.scrape_presidents
+        #puts
+        #puts "By: #{story.author}"
+        #puts "Summary: #{story.summary}"
+      
+        #puts "Would you like to read more?"
+        #answer = gets.strip 
+      
+        #if ["Y", "YES"].include?(answer.upcase)
+        
+        #puts story.content 
+        #end 
+      #end
+      #puts "Would you like to exit or list again?"
+      #input = gets.strip 
     end
   end
-  
-  def say_goodbye
-    puts "Goodbye!"
-  end
 end
+end 

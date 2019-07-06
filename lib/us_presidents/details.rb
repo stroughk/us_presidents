@@ -1,21 +1,16 @@
 class UsPresidents::Details
-  
   attr_accessor :birth_date, :death_date, :religion, :political_party, :nickname
+  @@all = [] 
   
-  @@all = []
-  
-  def initialize(birth_date, death_date, religion, political_party, nickname)
-    @birth_date = birth_date
-    @death_date = death_date
-    @religion = religion
-    @political_party = political_party
-    @nickname = nickname
-    @@all << self 
-  end
-  
-  def self.all
+  def self.all 
     @@all 
-  end
+  end 
   
+  def content 
+    @content ||= UsPresidents::Scraper.new(url).scrape_presidents
+  end 
   
+  def save 
+    @@all << self 
+  end 
 end
