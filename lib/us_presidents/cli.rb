@@ -14,13 +14,12 @@ class UsPresidents::CLI
     end
   end
 
-
   def menu 
     input = ""
     while input != "exit"
       puts "Type in the number of the president you want to read more: "
       input = gets.strip 
-    
+   
       if input.to_i-1 <= UsPresidents::Details.all.size 
         story = UsPresidents::Details.all[input.to_i-1]
         
