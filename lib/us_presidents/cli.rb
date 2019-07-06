@@ -25,20 +25,7 @@ class UsPresidents::CLI
         story = UsPresidents::Details.all[input.to_i-1]
       
         puts UsPresidents::Scraper.scrape_presidents
-        #puts
-        #puts "By: #{story.author}"
-        #puts "Summary: #{story.summary}"
-      
-        #puts "Would you like to read more?"
-        #answer = gets.strip 
-      
-        #if ["Y", "YES"].include?(answer.upcase)
         
-        #puts story.content 
-        #end 
-      #end
-      #puts "Would you like to exit or list again?"
-      #input = gets.strip 
     end
   end
 end
