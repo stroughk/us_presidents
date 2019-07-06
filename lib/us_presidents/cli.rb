@@ -18,7 +18,7 @@ class UsPresidents::CLI
   def list_presidents 
     url = "https://millercenter.org/president"
     UsPresidents::Scraper.scrape_presidents(url)
-     UsPresidents::Scraper.scrape_url(url)
+    #UsPresidents::Scraper.scrape_url(url)
     #scrape names with index
   
   end
