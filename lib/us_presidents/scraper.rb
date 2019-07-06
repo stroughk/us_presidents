@@ -6,13 +6,10 @@ class UsPresidents::Scraper
     section = webpage.css("div.info-wrapper a")
    end  
   
-  
-  #scraping url information ?????
-  #def self.scrape_url(url)
-   # site = "https://millercenter.org/president"  
-    #webpage = Nokogiri::HTML(open(site))
-    #url = webpage.css(".field-content a")[0]['href']
-    #full_link = "https://millercenter.org"+url
-    #puts full_link
-  #end
+  def self.scrape_url 
+    site = "https://millercenter.org/president"  
+    webpage = Nokogiri::HTML(open(site))
+    url = webpage.search(".field-content a").first.attr("href")
+    puts url
+  end
 end

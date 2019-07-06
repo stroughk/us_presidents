@@ -13,10 +13,8 @@ class UsPresidents::CLI
   def list_presidents 
     @presidents = UsPresidents::Presidents.presidents
     @presidents.each.with_index(1).each do |link, index|
-    puts "#{index}. #{link.text}"
-  end
-    
-    
+     puts "#{index}. #{link.text}"
+    end
   end
   
   def menu 
@@ -26,7 +24,7 @@ class UsPresidents::CLI
       input = gets.strip.downcase
     case input 
       when "1"
-        puts "This is information on George Washington"
+        puts "This is information on George Washington."
       when "2"
         puts "This is information on John Adams"
       when "3"
