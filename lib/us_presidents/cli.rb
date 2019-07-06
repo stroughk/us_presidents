@@ -6,17 +6,17 @@ class UsPresidents::CLI
    menu
   end
   
-  
   def greeting
     puts "\nWelcome! Please see a list of US Presidents.\n\n"
   end
   
   def list_presidents 
-    url = "https://millercenter.org/president"
-    UsPresidents::Scraper.scrape_presidents(url)
-    #UsPresidents::Scraper.scrape_url(url)
-    #scrape names with index
-  
+    @presidents = UsPresidents::Presidents.presidents
+    @presidents.each.with_index(1).each do |link, index|
+    puts "#{index}. #{link.text}"
+  end
+    
+    
   end
   
   def menu 
@@ -41,10 +41,7 @@ class UsPresidents::CLI
     end
   end
   
- 
-  
   def say_goodbye
     puts "Goodbye!"
   end
-  
 end

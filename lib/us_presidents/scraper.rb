@@ -4,12 +4,7 @@ class UsPresidents::Scraper
     site = "https://millercenter.org/president"  
     webpage = Nokogiri::HTML(open(site))
     section = webpage.css("div.info-wrapper a")
-    array_of_links = section
-
-    array_of_links.each.with_index(1).each do |link, index|
-    puts "#{index}. #{link.text}"
-    end
-  end  
+   end  
   
   
   #scraping url information ?????
