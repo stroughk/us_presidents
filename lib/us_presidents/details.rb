@@ -1,5 +1,5 @@
 class UsPresidents::Details
-  attr_accessor :birth_date, :death_date, :religion, :political_party, :nickname
+  attr_accessor :story
   @@all = [] 
   
   def self.all 

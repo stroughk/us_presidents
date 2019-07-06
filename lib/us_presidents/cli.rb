@@ -23,8 +23,10 @@ class UsPresidents::CLI
     
       if input.to_i-1 <= UsPresidents::Details.all.size 
         story = UsPresidents::Details.all[input.to_i-1]
-      
-        puts UsPresidents::Scraper.scrape_presidents
+        
+        puts UsPresidents::Scraper.scrape_url
+        puts UsPresidents::Scraper.scrape_story
+   
         
     end
   end
