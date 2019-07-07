@@ -1,0 +1,3 @@
+class UsPresidents::Story
+
+end
