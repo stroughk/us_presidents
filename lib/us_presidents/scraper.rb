@@ -23,4 +23,10 @@ class UsPresidents::Scraper
       end
     end 
 
+    def self.scrape_content 
+      @doc = Nokogiri::HTML(open("https://millercenter.org/president/washington"))
+      @doc.search(".copy-wrapper p").text
+    end
+
+
 end

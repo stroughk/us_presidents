@@ -24,9 +24,9 @@ class UsPresidents::CLI
       if input.to_i-1 <= UsPresidents::Story.all.size 
         story = UsPresidents::Story.all[input.to_i-1]
         
-        puts story.name 
-        puts
-        puts "President's Name: #{story.name}"
+        
+        puts "\nHere is some quick information: \n"
+        puts "\nPresident's Name: #{story.name}"
         puts "Inaguration: #{story.inaguration}"
         puts "End of presidency: #{story.end_date}"
         
@@ -34,7 +34,8 @@ class UsPresidents::CLI
         answer = gets.strip 
         
         if ["Y", "YES"].include?(answer.upcase)
-          
+        content = UsPresidents::Scraper.scrape_content  
+        puts content
         end 
       end
       puts "Would you like to exit or list again?"
