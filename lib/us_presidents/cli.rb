@@ -23,19 +23,19 @@ class UsPresidents::CLI
       max_value = UsPresidents::Story.all.length 
       if input.between?(1, max_value)
         story = UsPresidents::Story.all[input.to_i-1]
-        
-        
         puts "\nHere is some quick information: \n".yellow
         puts "\nPresident's Name: #{story.name}"
         puts "Inaguration: #{story.inaguration}"
         puts "End of presidency: #{story.end_date}"
-        
-        puts "Would you like to read more?".yellow
+        full_link = "https://millercenter.org#{story.url}"
+        puts "Would you like to read more? Type 'YES' or 'NO'".yellow
         answer = gets.strip 
         
         if ["Y", "YES"].include?(answer.upcase)
-        content = UsPresidents::Scraper.scrape_content  
-        puts content
+          
+        doc = Nokogiri::HTML(open(full_link))
+        full_content = doc.search(".copy-wrapper p").text
+        puts full_content
         end 
       else  
         puts "Invalid input. Please select only a number from the list above.".red 
