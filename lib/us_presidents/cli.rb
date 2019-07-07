@@ -1,7 +1,9 @@
 class UsPresidents::CLI 
   
   def call 
-    puts "Welcome!!!!"
+    puts "\nWelcome!!!!\n"
+    puts "\nHere is a list of all US Presidents: \n"
+    puts 
     UsPresidents::Scraper.new.scrape_articles
     list_stories
     menu
@@ -16,7 +18,7 @@ class UsPresidents::CLI
   def menu 
     input = ""
     while input != "exit"
-      puts "Which president do you want to read more information on?"
+      puts "\nWhich president do you want to read more information on?\n"
       input = gets.strip 
       
       if input.to_i-1 <= UsPresidents::Story.all.size 
@@ -33,11 +35,19 @@ class UsPresidents::CLI
         
         if ["Y", "YES"].include?(answer.upcase)
           
-          puts story.content 
         end 
       end
       puts "Would you like to exit or list again?"
       input = gets.strip 
+      
+      if input == "list"
+        list_stories
+      elsif input == "exit"  
+        puts "Goodbye!"
+      else
+        puts "Invalid entry"
+      end
+  
     end 
   end
 end 
