@@ -19,9 +19,9 @@ class UsPresidents::CLI
     input = ""
     while input != "exit"
       puts "\nWhich president do you want to read more information on?\n".blue
-      input = gets.strip 
-      
-      if input.to_i-1 <= UsPresidents::Story.all.size 
+      input = gets.strip.to_i 
+      max_value = UsPresidents::Story.all.length 
+      if input.between?(1, max_value)
         story = UsPresidents::Story.all[input.to_i-1]
         
         
@@ -37,7 +37,10 @@ class UsPresidents::CLI
         content = UsPresidents::Scraper.scrape_content  
         puts content
         end 
-      end
+      else  
+        puts "Invalid input. Please select only a number from the list above.".red 
+      end 
+   
       puts "Would you like to exit or list again?".blue
       input = gets.strip 
       
