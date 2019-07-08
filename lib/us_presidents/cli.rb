@@ -2,10 +2,13 @@ class UsPresidents::CLI
 
   def call 
     puts "\nWelcome! Let's learn about the US presidents!\n".red
-    puts "* * * * *".blue
-    puts "* * * * *".blue
-    puts "* * * * *".blue
-    puts "* * * * *".blue
+    print "* * * * *".blue
+    puts "IIIIIIIIIIIIIIIIIIIIIIIIII".red 
+    print "* * * * *".blue
+    puts "IIIIIIIIIIIIIIIIIIIIIIIIII".white
+    print "* * * * *".blue
+    puts "IIIIIIIIIIIIIIIIIIIIIIIIII".red 
+    puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".white
     puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".red
     puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".white
     puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".red
