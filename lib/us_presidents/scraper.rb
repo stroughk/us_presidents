@@ -22,11 +22,4 @@ class UsPresidents::Scraper
         story.save
       end
     end 
-
-    #def scrape_content 
-     # @page = Nokogiri::HTML(open("https://millercenter.org#{@url}"))
-     # @page.search(".copy-wrapper p").text
-     #end
-
-
 end

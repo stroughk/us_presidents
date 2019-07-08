@@ -37,22 +37,22 @@ class UsPresidents::CLI
         puts "\nPresident's Name: #{story.name}"
         puts "Inaguration: #{story.inaguration}"
         puts "End of presidency: #{story.end_date}"
-        full_link = "https://millercenter.org#{story.url}"
+        
         puts "Would you like to read more? Type 'YES' or 'NO'".blue
         answer = gets.strip 
         
         if ["Y", "YES"].include?(answer.upcase)
-          
-        doc = Nokogiri::HTML(open(full_link))
-        full_content = doc.search(".copy-wrapper p").text
-        puts full_content
+          full_link = "https://millercenter.org#{story.url}"  
+          doc = Nokogiri::HTML(open(full_link))
+          full_content = doc.search(".copy-wrapper p").text
+          puts full_content
         end 
-      else  
-        puts "Invalid input. Please select only a number from the list above.".red 
-      end 
+        else  
+          puts "Invalid input. Please select only a number from the list above.".red 
+        end 
    
-      puts "Would you like to exit or list again?".blue
-      input = gets.strip 
+      puts "Please type 'exit' to leave the program or 'list' to see the list again".blue
+      input = gets.strip.downcase 
       
       if input == "list"
         puts "Here is the list: ".blue
@@ -62,7 +62,6 @@ class UsPresidents::CLI
       else
         puts "Invalid entry".red
       end
-  
     end 
   end
 end 
