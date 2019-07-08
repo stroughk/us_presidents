@@ -2,6 +2,16 @@ class UsPresidents::CLI
 
   def call 
     puts "\nWelcome! Let's learn about the US presidents!\n".red
+    puts "* * * * *".blue
+    puts "* * * * *".blue
+    puts "* * * * *".blue
+    puts "* * * * *".blue
+    puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".red
+    puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".white
+    puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".red
+    puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".white
+    puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".red
+    
     puts "\nHere is a list of all US Presidents: \n".blue
     puts 
     UsPresidents::Scraper.new.scrape_articles
