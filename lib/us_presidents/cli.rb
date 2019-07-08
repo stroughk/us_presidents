@@ -1,19 +1,21 @@
 class UsPresidents::CLI 
 
   def call 
-    puts "\nWelcome! Let's learn about the US presidents!\n".red
-    print "* * * * *".blue
-    puts "IIIIIIIIIIIIIIIIIIIIIIIIII".red 
-    print "* * * * *".blue
-    puts "IIIIIIIIIIIIIIIIIIIIIIIIII".white
-    print "* * * * *".blue
-    puts "IIIIIIIIIIIIIIIIIIIIIIIIII".red 
-    puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".white
+    puts "\nWelcome! Let's learn about the US Presidents!\n".red
+    print "* * * * * *".blue
+    puts "IIIIIIIIIIIIIIIIIIIIIIII".red 
+    print "* * * * * *".blue
+    puts "IIIIIIIIIIIIIIIIIIIIIIII".white
+    print "* * * * * *".blue
+    puts "IIIIIIIIIIIIIIIIIIIIIIII".red 
+    print "* * * * * *".blue
+    puts "IIIIIIIIIIIIIIIIIIIIIIII".white
     puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".red
     puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".white
     puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".red
     puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".white
     puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".red
+    
     
     puts "\nHere is a list of all US Presidents: \n".blue
     puts 
@@ -31,7 +33,7 @@ class UsPresidents::CLI
   def menu 
     input = ""
     while input != "exit"
-      puts "\nType the number of the president you would like to read more information on?\n".blue
+      puts "\nType the number of the president you would like to read more information on.\n".blue
       input = gets.strip.to_i 
       max_value = UsPresidents::Story.all.length 
       if input.between?(1, max_value)
@@ -41,7 +43,7 @@ class UsPresidents::CLI
         puts "Inaguration: #{story.inaguration}"
         puts "End of presidency: #{story.end_date}"
         
-        puts "Would you like to read more? Type 'YES' or 'NO'".blue
+        puts "\nWould you like to read more? Type 'YES' or 'NO'".blue
         answer = gets.strip 
         
         if ["Y", "YES"].include?(answer.upcase)
@@ -54,7 +56,7 @@ class UsPresidents::CLI
           puts "Invalid input. Please select only a number from the list above.".red 
         end 
    
-      puts "Please type 'exit' to leave the program or 'list' to see the list again".blue
+      puts "Please type 'exit' to leave the program or 'list' to see the list again.".blue
       input = gets.strip.downcase 
       
       if input == "list"
