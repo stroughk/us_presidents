@@ -1,7 +1,7 @@
 class UsPresidents::CLI 
 
   def call 
-    puts "\nWelcome!!!!\n".yellow
+    puts "\nWelcome! Let's learn about the US presidents!\n".red
     puts "\nHere is a list of all US Presidents: \n".blue
     puts 
     UsPresidents::Scraper.new.scrape_articles
@@ -11,24 +11,24 @@ class UsPresidents::CLI
   
   def list_stories 
     UsPresidents::Story.all.each_with_index do |story, i|
-      puts "#{i+1} #{story.name}"
+      puts "#{i+1}. #{story.name}"
     end
   end 
   
   def menu 
     input = ""
     while input != "exit"
-      puts "\nWhich president do you want to read more information on?\n".blue
+      puts "\nType the number of the president you would like to read more information on?\n".blue
       input = gets.strip.to_i 
       max_value = UsPresidents::Story.all.length 
       if input.between?(1, max_value)
         story = UsPresidents::Story.all[input.to_i-1]
-        puts "\nHere is some quick information: \n".yellow
+        puts "\nHere is some quick information: \n".blue
         puts "\nPresident's Name: #{story.name}"
         puts "Inaguration: #{story.inaguration}"
         puts "End of presidency: #{story.end_date}"
         full_link = "https://millercenter.org#{story.url}"
-        puts "Would you like to read more? Type 'YES' or 'NO'".yellow
+        puts "Would you like to read more? Type 'YES' or 'NO'".blue
         answer = gets.strip 
         
         if ["Y", "YES"].include?(answer.upcase)
@@ -45,10 +45,10 @@ class UsPresidents::CLI
       input = gets.strip 
       
       if input == "list"
-        puts "Here is the list: ".yellow
+        puts "Here is the list: ".blue
         list_stories
       elsif input == "exit"  
-        puts "Goodbye!".yellow
+        puts "Goodbye!".blue
       else
         puts "Invalid entry".red
       end
