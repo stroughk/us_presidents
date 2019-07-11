@@ -16,7 +16,6 @@ class UsPresidents::CLI
     puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".white
     puts "IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII".red
     
-    
     puts "\nHere is a list of all US Presidents: \n".blue
     puts 
     UsPresidents::Scraper.new.scrape_articles
@@ -42,7 +41,6 @@ class UsPresidents::CLI
         puts "\nPresident's Name: #{story.name}"
         puts "Inaguration: #{story.inaguration}"
         puts "End of presidency: #{story.end_date}"
-        
         puts "\nWould you like to read more? Type 'YES' or 'NO'".blue
         answer = gets.strip 
         
@@ -53,13 +51,11 @@ class UsPresidents::CLI
             UsPresidents::Scraper.new.scrape_additional_details(story)
           end
       
-      
-      
           puts story.additional_details 
         end 
-        else  
-          puts "Invalid input. Please select only a number from the list above.".red 
-        end 
+      else  
+        puts "Invalid input.".red 
+      end 
    
       puts "Please type 'exit' to leave the program or 'list' to see the list again.".blue
       input = gets.strip.downcase 
