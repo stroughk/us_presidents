@@ -47,10 +47,15 @@ class UsPresidents::CLI
         answer = gets.strip 
         
         if ["Y", "YES"].include?(answer.upcase)
-          full_link = "https://millercenter.org#{story.url}"  
-          doc = Nokogiri::HTML(open(full_link))
-          full_content = doc.search(".copy-wrapper p").text
-          puts full_content
+          #call the scraper for additional details
+          
+          unless story.additional_details
+            UsPresidents::Scraper.new.scrape_additional_details(story)
+          end
+      
+      
+      
+          puts story.additional_details 
         end 
         else  
           puts "Invalid input. Please select only a number from the list above.".red 

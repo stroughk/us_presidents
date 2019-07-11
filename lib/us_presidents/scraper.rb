@@ -21,5 +21,14 @@ class UsPresidents::Scraper
       
         story.save
       end
+      
+      #new method for scraping additional details
+      def scrape_additional_details(story)
+          full_link = "https://millercenter.org#{story.url}"  
+          doc = Nokogiri::HTML(open(full_link))
+          full_content = doc.search(".copy-wrapper p").text
+          story.additional_details = full_content
+          
+      end
     end 
 end
