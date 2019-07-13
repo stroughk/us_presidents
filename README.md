@@ -22,8 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-User is greeted with a welcome message and an image of the US flag. A list of all US presidents is displayed. The user is prompted to select one president by typing the index number.
-Once a president is selected, a bried information is provided for the reader. User is prompted with an option to read additional details about the president. Once the user responds with a 'YES', more details are displayed to the user about the selected president. Reader has a choise to either list the presidents again or exit the program.
+User is greeted with a welcome message and an image of the US flag. A list of all US presidents is displayed. The user is prompted to select one president by typing the index number associated with the selected president. Once a president is selected, a brief information is provided to the reader. The user is prompted with an option to read additional details about the president. Once the user responds with a 'YES', more details are displayed to the user about the selected president. Reader has a choice to either list the presidents again or exit the program.
 
 ## Development
 
