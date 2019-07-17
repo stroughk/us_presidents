@@ -1,17 +1,8 @@
 class UsPresidents::Scraper 
     
-    def initialize(url = nil)
-      @url = url 
-    end 
-    
-    def scrape_article 
-      @doc = Nokogiri::HTML(open(@url))
-      @doc.search(".info-wrapper").text 
-    end
-    
-    def scrape_articles 
-      @doc = Nokogiri::HTML(open("https://millercenter.org/president"))
-      @doc.search(".info-wrapper").each do |article_li|
+    def self.scrape_articles 
+      doc = Nokogiri::HTML(open("https://millercenter.org/president"))
+      doc.search(".info-wrapper").each do |article_li|
       story = UsPresidents::Story.new 
         
       story.url = article_li.search(".field-content a").attr("href").text
@@ -21,12 +12,12 @@ class UsPresidents::Scraper
       
       story.save
     end
+  end  
       
-    def scrape_additional_details(story)
+    def self.scrape_additional_details(story)
       full_link = "https://millercenter.org#{story.url}"  
       doc = Nokogiri::HTML(open(full_link))
       full_content = doc.search(".copy-wrapper p").text
       story.additional_details = full_content
     end
-  end 
 end

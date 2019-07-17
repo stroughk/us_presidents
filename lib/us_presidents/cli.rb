@@ -18,7 +18,7 @@ class UsPresidents::CLI
     
     puts "\nHere is a list of all US Presidents: \n".blue
     puts 
-    UsPresidents::Scraper.new.scrape_articles
+    UsPresidents::Scraper.scrape_articles
     list_stories
     menu
   end 
@@ -34,6 +34,9 @@ class UsPresidents::CLI
     while input != "exit"
       puts "\nType the number of the president you would like to read more information on.\n".blue
       input = gets.strip.to_i 
+      
+      
+      
       max_value = UsPresidents::Story.all.length 
       if input.between?(1, max_value)
         story = UsPresidents::Story.all[input.to_i-1]
@@ -48,7 +51,7 @@ class UsPresidents::CLI
           #call the scraper for additional details
           
           unless story.additional_details
-            UsPresidents::Scraper.new.scrape_additional_details(story)
+            UsPresidents::Scraper.scrape_additional_details(story)
           end
       
           puts story.additional_details 

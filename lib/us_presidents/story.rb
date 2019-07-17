@@ -7,10 +7,6 @@ class UsPresidents::Story
     @@all 
   end 
   
-  def content 
-    @content ||= UsPresidents::Scraper.new(url).scrape_article  
-  end
-
   def save
     @@all << self
   end 
